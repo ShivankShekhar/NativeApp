@@ -1,0 +1,23 @@
+
+<ActionBar title="Shipment Tracker" class="action-bar">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+</ActionBar>
+
+<page xmlns:map="nativescript-here">
+<GridLayout class="page">
+    <HereMap
+    hideCompass="true" 
+        showUserLocation="false" 
+        disableRotation="false" 
+        disableTilt="false" 
+        mapStyle="normal"
+        (mapReady)="onMapReady($event)"
+        id="map"
+        zoomLevel="49"
+        disableZoom="false"
+        disableScroll="false"
+        latitude="37.97"
+        longitude="21.4252">
+    </HereMap>
+</GridLayout>
+</page>

@@ -1,0 +1,22 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Features"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+			<ListView class="list-group" [items]="countries" (itemTap)="onItemTap($event)"
+                style="height:5000;">
+                <ng-template let-country="item">
+                    <FlexboxLayout flexDirection="row" class="list-group-item">
+                        <Image [src]="country.imageSrc" class="thumb img-circle"></Image>
+                        <Label [text]="country.name" class="list-group-item-heading"
+                            verticalAlignment="center" style="width: 60%;font-size: 20"></Label>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView>
+
+
+</GridLayout>

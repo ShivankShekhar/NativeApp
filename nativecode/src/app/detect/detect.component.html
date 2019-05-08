@@ -1,0 +1,22 @@
+
+
+<ActionBar title="Detect Object" class="action-bar">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+</ActionBar>
+
+
+<!--ng if respone else image-->
+<GridLayout class="page"> 
+<StackLayout horizontalAlignment="center"  verticalAlignment="center"> 
+     
+    <div *ngIf="isimg; else select">
+        <Image [src]="pic" width="200" height="200"></Image>
+        <Button text="Test" (tap)="test()" class="btn btn-primary but"></Button>
+
+    </div> 
+    <ng-template #select>   
+        <Button text="Capture" (tap)="capture()" class="btn btn-primary but"></Button>
+    </ng-template>
+ 
+</StackLayout>
+</GridLayout>

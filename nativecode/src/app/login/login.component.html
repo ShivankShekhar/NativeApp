@@ -1,0 +1,27 @@
+
+<ActionBar title="Welcome" class="action-bar">
+</ActionBar>
+
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout class="home-panel">
+            <!--Add your page content here-->
+            <!--<Label textWrap="true" text="Play with NativeScript!" class="h2 description-label"></Label>-->
+
+            <label class="h2 description-label" style="color: azure" text="Login to Continue"></label>
+            <label></label>
+            <TextField [(ngModel)]="userID"  class="text1" (ngModelChange)='user_ID=$event'  hint="User Id"></TextField>
+            <label></label>
+            <TextField [(ngModel)]="password" class="text1"   hint="Password"></TextField>
+             <label></label>
+            <GridLayout columns="*, *" rows="auto" width="600px" height="150px">
+                <!--<Button text="Login" row="0" col="0"  (tap)="onButtonTap()"  width="100" height="50"></Button>-->
+                <Button text="Login" row="0" col="0"  (tap)="log()"  width="100" height="50"></Button>
+                <Button text="Reset" row="0" col="1"  on-tap="reset()"  width="100" height="50"></Button> 
+            </GridLayout>
+            <label text="Forgot Password!" style="color: azure" (tap)="forgot()" width="170"  > </label>
+            <label text="New User! REGISTER" style="color: azure" on-tap="register()" width="{{width*.48}}px"> </label>
+
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

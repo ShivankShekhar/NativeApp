@@ -1,0 +1,41 @@
+ 
+<ActionBar title="Product Details" class="action-bar">
+  <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="back()"></NavigationButton>
+</ActionBar>
+
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout class="home-panel">
+            <!--Add your page content here-->
+            
+            <div *ngIf="isImage; else select">
+                 <Image [src]="pic" height="150" width="150" backgroundColor="lightgray"></Image>
+            </div> 
+            <ng-template #select>   
+                <!--<GridLayout columns="10, *, 10,*,10" rows="*, 50, *" width="300"-->
+                <GridLayout columns="*" rows="*, 50, *" width="200"
+                    height="150" > 
+                    <Button text="Capture" class= "but" row="1" col="1" (tap)="capture()"></Button>
+                    <!--<Button text="Upload"class= "but" row="1" col="3" (tap)="upload()"></Button> -->
+                </GridLayout>  
+            </ng-template>
+ 
+            <!--<Label></Label>-->
+
+            <Label textWrap="true" text="Item ID" class="h2"></Label>
+            <TextField [(ngModel)]="prodID" width="300" hint="Item ID"></TextField>
+
+            <Label></Label>
+
+            <Label textWrap="true" text="Item Name" class="h2"></Label>
+            <TextField [(ngModel)]="prodName" width="300" hint="Item Name"></TextField>
+
+            <Label></Label>
+
+            <Label textWrap="true" text="Item Description" class="h2 description-label"></Label>
+            <TextField [(ngModel)]="prodDesc" width="300" hint="Item Description"></TextField>
+<Label></Label>
+            <Button text="Save" class="but" style="width:100"(tap)="onButtonTap()"></Button>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
