@@ -1,0 +1,55 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+ 
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout row="0"   class="head sidedrawer-header">
+            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <Label class="sidedrawer-header-brand" style="font-size: 18;" text="{{uName}}"></Label>
+            <Label class="footnote" text="{{email}}" style="font-size: 16;"></Label>
+        </StackLayout>
+    
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
+                    <Image col="0"src="~/app/images/home.png"  style="height: 55px;width:55px;"> </Image>
+                    <Label col="1" text="     Home" style="font-size: 16;"class="p-r-10"></Label>
+                </GridLayout>
+<StackLayout class="hr-light"></StackLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/browse')" (tap)="onNavItemTap('/browse')">
+                    <Image col="0"src="~/app/images/star.png"  style="height: 55px;width:55px;"> </Image>
+                    <Label col="1" text="     Features" style="font-size: 16;" class="p-r-10"></Label>
+                </GridLayout>
+
+                
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/featured')" (tap)="onNavItemTap('/featured')">
+                    <!--<Label col="0" text="&#xe063;" style="font-size:36px;background-image:'./app/images/widgets.png' " class="fa"></Label>-->
+                    <Image col="0"src="~/app/images/widget.png"  style="height: 55px;width:55px;"> </Image>
+                    <Label col="1" text="     Product Details" style="font-size: 16;" class="p-r-10"></Label>
+                </GridLayout>
+    
+                <StackLayout class="hr-light"></StackLayout>
+
+                <!--<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
+                     <Image col="0"src="~/app/images/settings.png"  style="height: 55px;width:55px;"> </Image>
+                    <Label col="1" text="     Settings" style="font-size: 16;" class="p-r-10"></Label> 
+                </GridLayout>-->
+
+                <!--<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">-->
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="logout()">
+                    <Label col="0" text="&#xf002;" class="fa"></Label>
+                    <Label col="1" text="Logout" class="p-r-10"></Label>
+                </GridLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>
+ 
