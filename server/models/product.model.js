@@ -22,7 +22,7 @@ mongoose.connect(`mongodb://${server}/${database}`, {useNewUrlParser: true})
         unique : true
     },
    ImageSource : {
-        type : Buffer, 
+        type : String, 
         // required : true
     },
     Description : {
