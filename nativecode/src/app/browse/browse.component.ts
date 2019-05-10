@@ -3,6 +3,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { ItemEventData } from "tns-core-modules/ui/list-view"
 import { Router} from "@angular/router";
+import {screen} from "tns-core-modules/platform"; 
 
 @Component({
     selector: "Browse",
@@ -11,9 +12,26 @@ import { Router} from "@angular/router";
     styleUrls: ['./browse.component.css']
 })
 export class BrowseComponent implements OnInit {
- private router:Router;
+    private router:Router;
+    private height:any;
+    private width:any;
+
+    countries: { name: string, imageSrc: string }[] = [
+            { name: "Detect Object", imageSrc: "~/app/images/cam.png" },
+            { name: "Locate Shipment", imageSrc: "~/app/images/loc.png" },
+
+    ];
+
     constructor(_router:Router) {
         this.router=_router;
+        this.getDimension();
+    }
+ 
+    getDimension( ) {  
+    this.height=screen.mainScreen.heightPixels;
+    this.width=screen.mainScreen.widthPixels;
+        console.log( this.height); 
+        console.log( this.width); 
     }
 
     ngOnInit(): void {
@@ -24,14 +42,6 @@ export class BrowseComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
-
-    // countries: { name: string  }[] = [
-    countries: { name: string, imageSrc: string }[] = [
-        { name: "Detect Object", imageSrc: "~/app/images/cam.png" },
-        { name: "Locate Shipment", imageSrc: "~/app/images/loc.png" },
-        // { name: "Detect Object" },
-        //  { name: "Locate Shipment"  }, 
-    ];
 
     onItemTap(args: ItemEventData): void {
         switch(args.index)

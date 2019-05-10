@@ -8,7 +8,7 @@
 
 <GridLayout class="page page-content">
 			<ListView class="list-group" [items]="countries" (itemTap)="onItemTap($event)"
-                style="height:5000;">
+                height="{{height}}px;" width="{{width}}px">
                 <ng-template let-country="item">
                     <FlexboxLayout flexDirection="row" class="list-group-item">
                         <Image [src]="country.imageSrc" class="thumb img-circle"></Image>

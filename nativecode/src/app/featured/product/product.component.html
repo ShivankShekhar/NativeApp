@@ -11,30 +11,29 @@
     <Label class="action-bar-title" text="Inventory Product Details"></Label>
 </ActionBar>
 
-    <AbsoluteLayout class="page"  style="height:1000">
-            <ListView class="list-group" [items]="products" (itemTap)="onItemTap($event)"
+<AbsoluteLayout class="page"  height="{{height}}px" width="{{width}}px">
+    <ListView class="list-group" [items]="products" (itemTap)="onItemTap($event)"
             style="height:1700px">
-             <ng-template let-product="item">
-                <FlexboxLayout flexDirection="row"  class="list-group-item" > 
+        <ng-template let-product="item">
+                    <FlexboxLayout flexDirection="row"  class="list-group-item" > 
 
-            <DockLayout width="350" height="60"  [nsRouterLink]="['/featured/product', product.product_name]" stretchLastChild="false">
+                        <DockLayout width="350" height="60"  [nsRouterLink]="['/featured/product', product.product_name]" stretchLastChild="false">
 
-                        <Image  dock="left" width="60" [src]="product.ImageSrc" rowspan="2" class="thumb img-circle"  [nsRouterLink]="['/product', product.product_name]"></Image>
-                        
-                        <Label  dock="top" height="40" width="200" [text]="product.product_item_no" class="list-group-item-text"
-                        verticalAlignment="center" style="width: 60%"></Label> 
-                        
-                        <Label dock="top" height="40" width="200"   [text]="product.product_name" style="size:30;"class="list-group-item-heading"
-                        verticalAlignment="center" style="width: 60%"></Label>  
-  
-            </DockLayout> 
+                                    <Image  dock="left" width="60" [src]="product.ImageSrc" rowspan="2" class="thumb img-circle"  [nsRouterLink]="['/product', product.product_name]"></Image>
+                                    
+                                    <Label  dock="top" height="40" width="200" [text]="product.product_item_no" class="list-group-item-text"
+                                    verticalAlignment="center" style="width: 60%"></Label> 
+                                    
+                                    <Label dock="top" height="40" width="200"   [text]="product.product_name" style="size:30;"class="list-group-item-heading"
+                                    verticalAlignment="center" style="width: 60%"></Label>  
+            
+                        </DockLayout> 
 
-                </FlexboxLayout>
-            </ng-template> 
-        </ListView>
+                    </FlexboxLayout>
+        </ng-template> 
+    </ListView>
 
-<Button left="{{width*.75}}px" (tap)="onTap()" top="{{height*.68}}px" class="btn btn-primary"  style="background-image:url('~/app/featured/images/ADD.png');width:48;height:48;color:white;border-radius:24;border-width:2;border-color:blue;" ></Button>
-<!--<Button left="{{width*.75}}px" (tap)="onTap()" top="{{height*.68}}px" class="btn btn-primary"  style="background-image:url('~/app/featured/images/ADD.png');background-repeat: no-repeat;width:48;height:48;color:white;border-radius:24;border-width:2;border-color:blue;" ></Button>-->
+<Button left="{{width*.75}}px" (tap)="onTap()" top="{{height*.68}}px" class="btn btn-primary"  style="background-image:url('~/app/featured/images/ADD.png');background-repeat: no-repeat;width:125px;height:125px;color:white;border-radius:24;border-width:2;border-color:blue;" ></Button>
 
 </AbsoluteLayout>
   

@@ -33,7 +33,7 @@ export class ProductDetailComponent implements OnInit {
             okButtonText: "YES",
             cancelButtonText: "CANCEL", 
         }).then(result => {
-            
+            if(result==true){
                 request({ 
                     url: `http://10.155.64.54:3000/product`,
                     method: "DELETE",
@@ -44,20 +44,21 @@ export class ProductDetailComponent implements OnInit {
                     JSON.stringify({
                                 "productItemNo": this.route.snapshot.params.product_name
                             }) 
+                            
                 }).then((response: any) => {
                     if(response)
                             {
                                 alert('Successfull');  
-                                this.routerExtensions.navigate(["/featured"]);
+                                this.routerExtensions.navigate(["/featured"], { clearHistory: true });
                         }
                     }, (e) => {console.log("Request Error : "+e);
                 });  
 
-
+            }
 
 
             console.log("Dialog result: " + result);
-            this.routerExtensions.navigate(["/featured"]);
+            
         });
     }
 

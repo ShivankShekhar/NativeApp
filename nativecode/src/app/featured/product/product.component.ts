@@ -4,7 +4,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { Prod } from "./product";
 import { ProductService } from "./product.service";
-import {screen} from "tns-core-modules/platform"; 
+import {screen} from "tns-core-modules/platform";  
 
 @Component({
   selector: 'ns-product',
@@ -18,17 +18,17 @@ export class ProductComponent implements OnInit {
     Produ :any;
     private height:any;
     private width:any;
+    private pic:any='~/app/featured/images/ADD.png';
 
     constructor(private productService: ProductService,private routerExtensions: RouterExtensions) {
         this.productService= new ProductService();
         this.getDimension();
+        this.pic = "https://placehold.it/5x5"; 
     }
 
     getDimension( ) {  
       this.height=screen.mainScreen.heightPixels;
       this.width=screen.mainScreen.widthPixels;
-        console.log( this.height); 
-        console.log( this.width); 
     }
 
     ngOnInit(): void { 

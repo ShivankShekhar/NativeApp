@@ -4,24 +4,20 @@
 <GridLayout>
     <ScrollView class="page">
         <StackLayout class="home-panel">
-            <Label text="User ID" width="300" style="color: azure"></Label>
+            <Label text="User ID" width="320" style="color: azure"></Label>
             <TextField [(ngModel)]="userID" width="300" class="text1"
                  hint="User Id"></TextField>
             <label></label>
-            <Label text="Password" width="300" style="color: azure"></Label>
+            <Label text="Password" width="320" style="color: azure"></Label>
             <TextField [(ngModel)]="password" width="300" class="text1" hint="Password"></TextField>
-            <label></label>
-             <Label text="Email" width="300" style="color: azure"></Label>
-            <TextField [(ngModel)]="email" width="300" class="text1"
-                hint="user@gmail.com"></TextField>
-            <label></label>
-             <Label text="Security Question: Favourite Sport" width="310" style="color: azure"></Label>
+            <label></label> 
+             <Label text="Security Question: Favourite Sport" width="320" style="color: azure"></Label>
             <TextField [(ngModel)]="ans" width="300" class="text1"
                  hint="Sport"></TextField>
             <label></label>
             <GridLayout columns="*, *" rows="auto" width="800px" height="150px">
                 <!--<Button text="Login" row="0" col="0"  (tap)="onButtonTap()"  width="100" height="50"></Button>-->
-                <Button text="Register" row="0" col="0" (tap)="register()"
+                <Button text="RESET" row="0" col="0" (tap)="register()"
                     width="120" height="50"></Button>
                 <Button text="Cancel" row="0" col="1" on-tap="cancel()" width="100"
                     height="50"></Button>
