@@ -4,7 +4,7 @@ Learn more about the RadSideDrawer UI component and how it can be customized in 
 http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
 -->
  
-<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+<RadSideDrawer [drawerTransition]="sideDrawerTransition" (loaded)="onLoaded()">
     
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0"   class="head sidedrawer-header">
