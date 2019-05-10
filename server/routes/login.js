@@ -50,19 +50,32 @@ router.post('/login',(req,res)=>{
 
 //Update Request PUT
 router.put("/login",(req,res)=>{
-    if(!req.body.userName || !req.body.password ||  !req.query.ans){
-        return res.status(400).send("Missing User Name or Password")
+    if(!req.body.userName || !req.body.ans){
+        return res.status(400).send("Missing User Name or Security Answer")
     }  
-    loginModel.findOneAndUpdate({
-        userName : req.body.userName
-    },  req.body,{
-        new : true
-    })
-    .then(doc=>{
-    res.json(doc)
-    })
-    .catch(err=>{
-        res.status(500).json(err)
+    console.log("new  : "+req.body.ans );
+    loginModel.find({
+        userName : req.body.userName,
+        ans : req.body.ans
+    }).then(doc=>{ 
+        console.log("database = "+doc[0].ans + " new  : "+req.body.ans );
+         if(doc[0].ans==req.body.ans){
+             console.log("start");
+            loginModel.findOneAndUpdate({
+                    userName :  req.body.userName
+                },  req.body,{
+                    new : true
+                })
+                .then(doc=>{
+                    console.log("hello1="+doc);
+                res.json(doc)
+                })
+                .catch(err=>{
+                    res.status(500).json(err)
+                })
+         }
+    }).catch(err=>{
+        return res.status(500).json(err)
     })
 })
 
