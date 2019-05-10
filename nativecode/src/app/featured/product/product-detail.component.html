@@ -8,31 +8,26 @@
 </ActionBar>
 
 <GridLayout>
-<ScrollView class="page">
-<StackLayout class="home-panel">
-<!--Add your page content here--> 
-<Image [src]="product.ImageSrc" height="150" width="150"></Image> 
-<Label></Label>
+  <ScrollView class="page">
+    <StackLayout class="home-panel">
+          <Image [src]="product.ImageSrc" height="150" width="150"></Image> 
+      <Label></Label>
+          <Label textWrap="true" text="Item No" class="h2"></Label>
+          <!-- <Label textWrap="true" [text]="product.product_item_no" class=" "></Label> -->
+          <Label [text]="product.product_item_no" class="list-group-item-heading"
+          verticalAlignment="center" style="width: 60%"></Label>  
 
-<Label textWrap="true" text="Item No" class="h2"></Label>
-<!-- <Label textWrap="true" [text]="product.product_item_no" class=" "></Label> -->
-<Label [text]="product.product_item_no" class="list-group-item-heading"
-verticalAlignment="center" style="width: 60%"></Label> 
-<!-- <TextField [(ngModel)]="textFieldValue" width="300" hint="Item ID"></TextField> -->
+      <Label></Label>
+          <Label textWrap="true" text="Item Name" class="h2"></Label>
+          <!-- <Label textWrap="true"  [text]="product.product_name" class="h2"></Label> -->
+          <Label [text]="product.product_name" class="list-group-item-heading"
+            verticalAlignment="center" style="width: 60%"></Label>  
 
-<Label></Label>
-<Label textWrap="true" text="Item Name" class="h2"></Label>
-<!-- <Label textWrap="true"  [text]="product.product_name" class="h2"></Label> -->
-<Label [text]="product.product_name" class="list-group-item-heading"
-verticalAlignment="center" style="width: 60%"></Label> 
-<!-- <TextField [(ngModel)]="textFieldValue" width="300" hint="Item Name"></TextField> -->
-
-<Label></Label> 
-<Label textWrap="true" text="Item Description" class="h2 description-label"></Label>
-<!-- <Label textWrap="true"  [text]="product.description" class="h2"></Label> -->
-<Label [text]="product.description" class="list-group-item-heading"
-verticalAlignment="center" style="width: 60%"></Label> 
-<!-- <TextField [(ngModel)]="textFieldValue" width="300" hint="Item Description"></TextField> -->
-</StackLayout>
-</ScrollView>
+      <Label></Label> 
+          <Label textWrap="true" text="Item Description" class="h2 description-label"></Label>
+          <!-- <Label textWrap="true"  [text]="product.description" class="h2"></Label> -->
+          <Label [text]="product.description" class="list-group-item-heading"
+          verticalAlignment="center" style="width: 60%"></Label>  
+    </StackLayout>
+  </ScrollView>
 </GridLayout> 

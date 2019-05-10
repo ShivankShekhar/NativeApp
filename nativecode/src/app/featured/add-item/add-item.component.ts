@@ -73,7 +73,7 @@ export class AddItemComponent implements OnInit {
 
         console.log(productItemNo+" name : "+productName); 
     }
-
+  
     public onButtonTap(){           
         request({ 
             url: `http://10.155.64.54:3000/product`,
@@ -85,7 +85,7 @@ export class AddItemComponent implements OnInit {
             JSON.stringify({
                         "productItemNo": this.prodID,
                         "productName"  : this.prodName,
-                        // "ImageSource"  : this.base64,//this.pic,
+                        "ImageSource"  : this.base64,//this.pic,
                         "Description"  : this.prodDesc 
                     }) 
         }).then((response: any) => {

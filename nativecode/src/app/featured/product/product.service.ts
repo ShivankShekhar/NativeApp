@@ -24,7 +24,7 @@ export class ProductService {
         //         var name=jas[i].productName;
         //         var desc=jas[i].Description;
         //         var Image=jas[i].ImageSource; 
-        //         var items:Prod = { product_item_no: item_no, product_name:name, description: desc,ImageSrc:Image};
+        //         var items:Prod = { product_item_no: item_no, product_name:name, description: desc,ImageSrc:"data:image/png;base64,"+Image};
         //         this.products.push(items); 
         //     }   
         // }, (e) => {console.log("Request Error : "+e);
