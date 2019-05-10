@@ -26,7 +26,7 @@ private ans:any;
 
     request({ 
       url: `http://10.155.64.54:3000/login`,
-      method: "POST",
+      method: "PUT",
       headers: { 
               "Content-Type":
               "application/json"
@@ -39,12 +39,19 @@ private ans:any;
 
               }) 
     }).then((response:any) => {
+      
           if(response){ 
-              alert('Successfull');
-              this.routerExtensions.navigate(["/login"], {clearHistory: true });
+            if(response.name != "MongoError")
+              {alert('Successfull');
+              this.routerExtensions.navigate(["/login"], {clearHistory: true });}
+            else{
+              alert('User name already exist');
+            }
           }
+        
       }, (e) => {console.log("Request Error : "+e);
     }); 
+
   }
 
   cancel(){

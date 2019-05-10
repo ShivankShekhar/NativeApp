@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
     constructor(private userDetails:UserDetails,private router: Router, private routerExtensions: RouterExtensions) {
             this.uName =this.userDetails.getUser();
             this.email =this.userDetails.getEmail();
-            console.log("abc");
     }
 
     ngOnInit(): void {

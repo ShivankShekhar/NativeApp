@@ -7,6 +7,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { request, getFile, getImage, getJSON, getString } from "tns-core-modules/http"; 
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import {screen} from "tns-core-modules/platform"; 
+import {prompt,PromptResult,PromptOptions,inputType,capitalizationType} from "tns-core-modules/ui/dialogs";
+
 
 @Component({
   selector: 'ns-login',
@@ -51,8 +53,6 @@ export class LoginComponent implements OnInit {
     getDimension( ) {  
       this.height=screen.mainScreen.heightPixels;
       this.width=screen.mainScreen.widthPixels;
-        console.log( this.height); 
-        console.log( this.width); 
     }
 
     onButtonTap(): void {
@@ -106,6 +106,10 @@ export class LoginComponent implements OnInit {
             }
         else
             alert("User Name or Password cannot be NULL"); 
+    }
+
+    forgot(){ 
+            this.routerExtensions.navigate(["/forgot"], { clearHistory: true });
     }
 
     reset(): void {

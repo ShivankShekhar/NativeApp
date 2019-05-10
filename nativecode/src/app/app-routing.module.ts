@@ -3,6 +3,7 @@ import { Routes } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
  import {DetectComponent} from "./detect/detect.component";
  import {MapComponent} from "./map/map.component";
+ import {ForgotpswdComponent} from "./forgotpswd/forgotpswd.component";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: "login", component: LoginComponent }, 
     { path: "detect", component: DetectComponent }, 
     { path: "locate", component: MapComponent }, 
+    { path: "forgot", component: ForgotpswdComponent }, 
     { path: "register", loadChildren: "~/app/register/register.module#RegisterModule" },
     { path: "home", loadChildren: "~/app/home/home.module#HomeModule" },
     { path: "browse", loadChildren: "~/app/browse/browse.module#BrowseModule" },
