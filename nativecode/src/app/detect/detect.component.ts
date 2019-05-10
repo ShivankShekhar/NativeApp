@@ -3,6 +3,7 @@ import * as Camera from "nativescript-camera";
 import * as ImageSource from "tns-core-modules/image-source";
 import * as Permissions from "nativescript-permissions";
 import { RouterExtensions } from "nativescript-angular/router";
+ import { request} from "tns-core-modules/http";
 
 @Component({
   selector: 'ns-detect',
@@ -16,6 +17,7 @@ export class DetectComponent implements OnInit {
   private images: Array<any>; 
   private pic:any;
   private isimg:boolean=false;
+  private base64:any;
   constructor(private routerExtensions: RouterExtensions) { 
     this.images = [] ; 
     this.pic = "https://placehold.it/200x200"; 
@@ -43,23 +45,38 @@ export class DetectComponent implements OnInit {
 
                     ImageSource.fromAsset(imageAsset)
                         .then(res => {
-                            var base64 = res.toBase64String("jpg", 100); 
+                            this.base64 = res.toBase64String("jpg", 100); 
                             this.isimg=true;
-                            console.log(base64);
+                            console.log(this.base64);
                         })
                 }).catch(function (err) {  
                     console.log("Error -> " + err.message);
                 }); 
   } 
 
+test(){
 
-    // android :any;
-    // public getCameraPermission() {
-    //     Permissions.requestPermission(this.android.Manifest.permission.CAMERA, "Needed for connectivity status").then(() => {
-    //         console.log("Permission granted!");
-    //     }).catch(() => {
-    //         console.log("Permission is not granted (sadface)");
-    //     });
-    // }
+
+// request({ 
+//       url: `http://10.155.64.54:5000/obj`,
+//       method: "GET",
+//       headers: { 
+//               "Content-Type": "application/json"
+//       },
+//       content : JSON.stringify({ 
+//               "ImageSource" : `${this.base64}`, 
+//               }) 
+//     }).then((response:any) => {
+      
+//           if(response)
+//               {alert('Successfull');
+//               this.routerExtensions.navigate(["/login"], {clearHistory: true });}
+//             else{
+//               alert('User name already exist');
+//             }
+//       }, (e) => {console.log("Request Error : "+e);
+//     }); 
+}
+
 
 }
